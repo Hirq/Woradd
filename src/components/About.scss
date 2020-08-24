@@ -1,0 +1,271 @@
+$base-color: white;
+$dark-color: black;
+
+
+
+body {
+
+    background-color: #276381;
+    font-family: sans-serif;
+  }
+  
+  #container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+/* WORD */
+
+#NavbarWordDiv {
+  display: -webkit-inline-box;
+  margin-left: 10px;
+}
+
+.form-group{
+  margin-bottom: 0;
+  padding-left: 5px;
+}
+
+#NavbarBtnAdd{
+  top: 18%;
+  color: black;
+  border-color: black;
+  border-radius: 7px;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 20px;
+  height: 40px;
+  padding-top: 2px;
+}
+
+#NavbarBtnAdd:hover{
+  color: color;
+  padding-top: 1px;
+  border-color: rgb(41, 56, 4);
+}
+/* BLOG  */
+
+#blogInputName{
+  margin-bottom: 5px;
+  width: 800px;
+}
+
+
+.Scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;  
+}
+
+.Scene svg{
+  width: 30%;
+  height: 30%;
+}
+
+
+/* NOTE  */
+
+#saveNote{
+  text-align: center;
+  margin-left: 0px;
+  font-size: 25px;
+}
+
+#divFormNote {
+  display: -webkit-inline-box;
+}
+
+#areaText{
+  margin-left: 0px;
+  text-align: center;
+}
+
+#inputNote{
+  margin-bottom: 5px;
+  width: 300px;
+}
+
+#buttonArea{
+  margin-right: 5px;
+  text-align: center;
+  background-color: #3f51b5;
+  margin-bottom: 5px;
+  color: white;
+}
+
+#cardView{
+  min-height: 40px;
+  font-size: 1rem;
+  padding: .375rem .75rem;  
+  line-height: 1.5;
+  color:black;
+}
+
+.list-group a {
+  text-decoration: none;
+}
+
+#butttonRemove {
+  margin-right: 10px;
+}
+
+/* ARCHIVES  */
+
+#nameArchive{
+  text-align: center;
+  margin-left: -9%;
+}
+
+/* TIMER */ 
+
+#timer{
+  position: absolute;
+  right: 0;
+}
+#timerButton{
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+/* MINI DRAWER */
+
+#links{
+  color:black;
+  text-decoration: none;
+}
+
+#links:hover{
+  text-decoration: none;
+  color:black;
+}
+
+
+
+/* Light - Dark - Style  */
+nav{
+  height: 65px;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  nav{
+    background-color: blue;
+    transition: background-color 0.25s ease;
+  }
+}
+
+.light-mode-drawer{
+  .makeStyles-drawerClose-8{
+    background-color: white;
+    transition: background-color 0.25s ease;
+  }
+  
+  .makeStyles-drawerOpen-7{
+    background-color: white;
+    transition: background-color 0.25s ease;
+  }
+}
+
+.light-mode-content{
+  background-color: white;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  color: black;
+  transition: background-color 0.25s ease;
+}
+
+.dark-mode {
+  background-color: #971e1e;
+  color: rgb(243, 201, 201);
+
+  nav{
+    background-color: sandybrown;
+    transition: background-color 0.25s ease;
+  }
+}
+
+.dark-mode-drawer{
+  .makeStyles-drawerClose-8{
+    background-color: green;
+    transition: background-color 0.25s ease;
+  }
+  
+  .makeStyles-drawerOpen-7{
+    background-color: green;
+    transition: background-color 0.25s ease;
+  }
+}
+
+.dark-mode-content{
+  background-color: black;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  color: rgb(161, 76, 182);
+  transition: background-color 0.25s ease;
+}
+
+.toggle-dark-mode {
+  position: relative;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"].checkbox-dark-mode {
+  width: 40px;
+  height: 10px;
+  background: #555;
+  position: relative;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  vertical-align: 2px;
+  outline: none;
+}
+
+input[type="checkbox"].checkbox-dark-mode:checked + label {
+  left: 30px;
+}
+
+input[type="checkbox"].checkbox-dark-mode:focus-visible {
+  outline: solid 2px white;
+}
+
+input[type="checkbox"].checkbox-dark-mode + label {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  left: 2px;
+  background: #fff;
+  opacity: 0.9;
+  background-color: cyan;
+}
+
+.toogle-dark-mode-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.toogle-dark-mode-container > span {
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 4px;
+  margin-right: 2px;
+}
+
+.toogle-dark-mode-container > span:last-child {
+  margin-top: 5px;
+}

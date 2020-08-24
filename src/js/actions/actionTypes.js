@@ -1,0 +1,14 @@
+export const GET_ALL_CONTACTS = 'GET_ALL_CONTACTS';
+export const CREATE_NEW_CONTACT = 'CREATE_NEW_CONTACT';
+export const REMOVE_CONTACT = 'REMOVE_CONTACT';
+
+export const GET_ALL_NOTE = 'GET_ALL_NOTE';
+export const CREATE_NEW_NOTE = 'CREATE_NEW_NOTE';
+export const REMOVE_NOTE = 'REMOVE_NOTE';
+
+export const CREATE_NEW_SET = 'CREATE_NEW_SET';
+export const REMOVE_SET = 'REMOVE_SET';
+
+export const GET_ALL_POST = 'GET_ALL_POST';
+export const CREATE_NEW_POST = 'CREATE_NEW_POST';
+export const REMOVE_POST = 'REMOVE_POST';
