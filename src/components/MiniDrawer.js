@@ -23,14 +23,13 @@ import InsertInvitationIcon from '@material-ui/icons/InsertInvitation';
 import './About.scss';
 
 import Home from './Home';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import Word from './Word';
 import List1 from './List1';
 import Note from './Note';
 import Archives from './Archives';
 import Timer from './Timer';
 import Blog from './Blog';
-import { style } from '@material-ui/system';
 
 const drawerWidth = 240;
 
@@ -76,7 +75,7 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-     
+
     }),
     overflowX: 'hidden',
     width: theme.spacing(7) + 1,
@@ -112,7 +111,7 @@ export default function MiniDrawer() {
   function getInitialMode(){
     const isReturningUser = "dark" in localStorage;
     const savedMode = JSON.parse(localStorage.getItem('dark'));
-    const userPrefersDark = getPreferColorScheme();    
+    const userPrefersDark = getPreferColorScheme();
 
     if(isReturningUser){
       return savedMode;
@@ -165,16 +164,16 @@ export default function MiniDrawer() {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" noWrap>
-                Woradd 
+                Woradd
                 {darkMode ? "1" : "2"}
 
               </Typography>
               <Word/>
-              
+
               <div className="toogle-dark-mode-container">
                 <span style={{ color: darkMode ? "grey" : "yellow"}}>☀</span>
                 <span className="toggle-dark-mode">
-                  <input 
+                  <input
                   checked={darkMode}
                   onChange={() => setDarkMode(prevMode => !prevMode)}
                   type="checkbox"
@@ -182,11 +181,8 @@ export default function MiniDrawer() {
                   id="checkbox-dark-mode"
                   />
                 <label htmlFor="checkbox-dark-mode"/>
-                  
                 </span>
                 <span style={{ color: darkMode ? "red" : "grey"}}>☾</span>
-                
-                <button onClick={() => setDarkMode(prevMode => !prevMode)}> Toggle Mode </button>
               </div>
 
               <Timer/>
@@ -209,7 +205,7 @@ export default function MiniDrawer() {
         }}
         open={open}
       >
-          
+
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <KeyboardArrowRightIcon /> : <KeyboardArrowLeftIcon />}
@@ -258,13 +254,13 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-        
+
       </Drawer>
       </div>
       <div className ={darkMode ? "dark-mode-content" : "light-mode-content"}>
       <main className={classes.content} >
       <div className={classes.toolbar}/>
-            
+
         <Switch>
           <Route path="/home/" component={Home} />
           <Route path="/about/" component={List1}/>
@@ -272,9 +268,9 @@ export default function MiniDrawer() {
           <Route path="/archives/:index" component={Archives}/>
           <Route path="/blog" component={Blog}/>
         </Switch>
-        
 
-        
+
+
       </main>
       </div>
     </div>

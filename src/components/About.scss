@@ -5,7 +5,7 @@ $dark-color: black;
 
 body {
 
-    background-color: #276381;
+    background-color: #528ba8;
     font-family: sans-serif;
   }
   
@@ -44,10 +44,24 @@ body {
   border-color: rgb(41, 56, 4);
 }
 /* BLOG  */
+#containerBlog{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
 
 #blogInputName{
   margin-bottom: 5px;
-  width: 800px;
+  width: 300px;
+}
+
+#rowLeft{
+  width: 60%;
+}
+
+#rowRight{
+  width: 35%;
 }
 
 
@@ -55,7 +69,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;  
+  background-color: black;  
 }
 
 .Scene svg{

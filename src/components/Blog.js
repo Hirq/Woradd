@@ -1,4 +1,4 @@
-import React, { Component, createRef, useEffect } from 'react';
+import React, { Component } from 'react';
 import uuidv1 from "uuid";
 import * as blogAction from '../js/actions/blogAction';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
@@ -6,9 +6,6 @@ import { connect } from "react-redux";
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
-
-import { ReactComponent as Scene1 } from '../Frame1.svg';
-import gsap from 'gsap';
 import Scene from './Scene';
 
 
@@ -84,33 +81,37 @@ class Blog extends Component {
     render(){
 
         return(
-          <div className="container">
-            <Scene />
-          <div className="row">
-              <div className="col-sm-8">
+       
+          <div className="container" id="containerBlog">
+             <Scene /> 
+<div className="row">
+          <div className="col-sm-8">
+              <div className="col">
                 <input type="text" id="blogInputName" value={this.state.name} onChange={this.handleChangeName} className="form-control" placeholder="Name post" />
               </div>
-              <div className="col-sm-4">
+              <div className="col">
                   <TextareaAutosize onChange={this.handleChangeText} value={this.state.text} id="areaText" aria-label="minimum height" rows={5} placeholder="Text post" />
               </div>
-              <div className="col-sm-4">
+              <div className="col">
                   <TextareaAutosize onChange={this.handleChangeTag} value={this.state.tag} id="areaText" aria-label="minimum height" rows={5} placeholder="Notatka pl" />
               </div>
 
           </div>
-          <div className="row">
+
+          <div className="col-sm-4">
 
               <form onSubmit={this.handleSubmit} id="divFormNote" >
                 <Button variant="contained" color="primary" size="large" startIcon={<SaveIcon />} type="submit" className="btn" id="buttonArea">
                   Save
                 </Button>
-                  </form>
-              <div className="col-sm-4" >
+              </form>
+     
                   <h2>BLOG</h2>
 
                   <ul className="list-group">
                       {this.props.posts.map((post, i) => this.listView(post, i))}
                   </ul> 
+          
               </div>
           </div>
       </div>

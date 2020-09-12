@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import './About.scss'
 import * as contactAction from '../js/actions/contactAction';
 import * as setAction from '../js/actions/setAction';
-import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import uuidv1 from "uuid";
-
+import WordsList from './ListFirebase';
 
 class List1 extends Component {
 
@@ -20,6 +20,7 @@ class List1 extends Component {
       nameSet: '',
     }
   }
+
 
   listView(data, index){
     return (
@@ -105,6 +106,7 @@ class List1 extends Component {
           <ul className="list-group">
             {this.props.sets.map((set, i) => this.listViewSet(set, i))}
           </ul> 
+          <WordsList></WordsList>
         </div>
       </div>
         

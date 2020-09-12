@@ -3,8 +3,8 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import uuidv1 from "uuid";
 import * as noteAction from '../js/actions/noteAction';
 import { connect } from "react-redux";
-import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
-import Archives from './Archives';
+import { Link } from 'react-router-dom';
+
 
 class Note extends Component{
 

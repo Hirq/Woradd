@@ -5,6 +5,7 @@ import './About.scss';
 import * as contactAction from '../js/actions/contactAction';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import firebase from '../firebase';
 
 
 import { withStyles } from '@material-ui/core/styles';
@@ -15,8 +16,8 @@ const styles = theme => ({
     flexWrap: 'wrap',
   },
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
     width: 200,
     marginTop: '10px',
 
@@ -45,15 +46,13 @@ const styles = theme => ({
 
 });
 
-
-
 class Word extends Component {
 
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-     
+
     this.state = {
       word: '',
       word_pl: '',
@@ -70,12 +69,26 @@ class Word extends Component {
     });
   };
 
+  handleChange3 = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
   handleSubmit(e) {
     e.preventDefault();
     const { word, word_pl } = this.state;
     const id = uuidv1();
     this.props.createContact({word, word_pl, id});
-    this.setState({ word: "", word_pl: "" });
+    this.setState({ word: "", word_pl: ""});
+
+    firebase
+    .firestore()
+    .collection('words')
+    .add({
+      word,
+      word_pl
+    })
   }
 
   render() {
@@ -83,10 +96,9 @@ class Word extends Component {
 
     return(
       <div>
-      
+
         <form onSubmit={this.handleSubmit} id="NavbarWordDiv" className={classes.container} noValidate autoComplete="off">
         <TextField
-          id="standard-name"
           label="ANG"
           className={classes.textField}
           value={this.state.word}
@@ -110,7 +122,6 @@ class Word extends Component {
           }}
         />
         <TextField
-          id="standard-name"
           label="PL"
           className={classes.textField}
           value={this.state.word_pl}
@@ -135,13 +146,13 @@ class Word extends Component {
         <Button
           variant="contained"
           color="default"
-          type="submit" className="btn btn-sm" id="NavbarBtnAdd" 
+          type="submit" className="btn btn-sm" id="NavbarBtnAdd"
           >
-          Upload
+          Upload1
         </Button>
-          
+
        </form>
-      
+
       </div>
     )
   }
@@ -154,32 +165,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default  connect(null, mapDispatchToProps)(withStyles(styles)(Word));
-
-
-/*
-///STARE PRZYCISKI
-
-<div className="form-group">
-    <input
-        type="text"
-        className="form-control"
-        id="word"
-        value={this.state.word}
-        required="required"
-        onChange={this.handleChange}
-        placeholder="ANG"
-    />
-</div>
-<div className="form-group">
-    <input
-        type="text"
-        className="form-control"
-        id="word_pl"
-        value={this.state.word_pl}
-        required="required"
-        onChange={this.handleChange}
-        placeholder="PL"
-    />
-</div>
-
-*/

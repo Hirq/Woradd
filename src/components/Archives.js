@@ -7,7 +7,7 @@ class Archives extends Component {
 
   constructor(props){
     super(props);
-    
+
     this.state = {
         noteAng: '',
         notePl: '',
@@ -20,8 +20,8 @@ class Archives extends Component {
       <div className="row">
         <div className="col-md-10">
           <div className="card" id="nameArchive">
-            <h2>{data.noteName}</h2> 
-          </div>       
+            <h2>{data.noteName}</h2>
+          </div>
           <div className="row">
             <div className="col-md-5 card">
               <h2>ANG</h2>
@@ -35,12 +35,12 @@ class Archives extends Component {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     )
   }
 
   render() {
-    {this.lista = this.props.notes.map((note, i) => this.listView(note, i))}
+    this.lista = this.props.notes.map((note, i) => this.listView(note, i))
 
     return(
       <div className="container">
