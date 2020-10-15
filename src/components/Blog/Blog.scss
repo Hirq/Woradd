@@ -1,0 +1,78 @@
+#containerBlog{
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+  
+  #blogInputName{
+    margin-bottom: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    width: 300px;
+    text-align: center;
+  }
+
+  #TextareaBlog{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  
+  #areaTextBlog{
+    margin-left: 0px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  #buttonSave{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .postBlog{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  #headerPostBlog{
+      color: #3d1717;
+  }
+
+  .containerPost{
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border-style: double;
+  }
+
+
+  .formControlBlog{
+    min-width: 120px;
+    max-width: 300px;
+  }
+
+
+
+
+
+
+
+
+
+
+  .Scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;  
+  }
+  
+  .Scene svg{
+    width: 30%;
+    height: 30%;
+  }

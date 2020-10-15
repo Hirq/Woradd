@@ -24,7 +24,7 @@ class Home extends Component {
       articlesDone: [
         { title: "0 : css zamienić na scss"},
         { title: "01 : Dark style"},
-        { title: "Firebase"},
+        { title: "Firebase - póki co tylko na 30 dni aktywne"},
       ]
     };
   }

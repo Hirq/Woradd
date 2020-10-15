@@ -29,7 +29,7 @@ import List1 from './List1';
 import Note from './Note';
 import Archives from './Archives';
 import Timer from './Timer';
-import Blog from './Blog';
+import Blog from './Blog/Blog';
 
 const drawerWidth = 240;
 

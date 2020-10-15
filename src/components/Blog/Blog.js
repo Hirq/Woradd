@@ -1,0 +1,130 @@
+import React, { Component } from 'react';
+import uuidv1 from "uuid";
+import * as blogAction from '../../js/actions/blogAction';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import { connect } from "react-redux";
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
+import './Blog.scss'
+import MultipleSelect from './BlogSelectBox';
+
+class Blog extends Component {
+    constructor(props){
+      super(props);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChangeName = this.handleChangeName.bind(this);
+      this.handleChangeText = this.handleChangeText.bind(this);
+      this.handleChangeTextAng = this.handleChangeTextAng.bind(this);
+      this.handleChangeTag = this.handleChangeTag.bind(this);
+
+      this.state = {
+        name: '',
+        textPl: '',
+        textAng: '',
+        tag: '',
+      }
+    }
+
+    handleChangeName(e){
+      this.setState({
+        name: e.target.value,
+      })
+    }
+
+    handleChangeText(e){
+      this.setState({
+        textPl: e.target.value,
+
+      })
+    }
+
+    handleChangeTextAng(e){
+      this.setState({
+        textAng: e.target.value,
+      })
+    }
+
+    handleChangeTag(e){
+      this.setState({
+        tag: e.target.value,
+      })
+    }
+
+    handleSubmit(e){
+      e.preventDefault();
+      const { name, textPl,textAng, tag } = this.state;
+      const id = uuidv1(); 
+      this.props.createPost({name, textPl, textAng, tag, id});
+      this.setState({name: '', textPl: '', textAng: '', tag: ''});
+    }
+
+    listView(data, index){
+      return(
+        <div className="containerPost">
+          <h1>Tytul - {data.name}</h1>
+          <h2>Tekst - {data.textPl}</h2>
+          <h2>TekstAng - {data.textAng}</h2>
+          <h3>Tagi: {data.tag}</h3>
+          
+          <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => this.deletePost(e, index)} className="btn btn-danger" id="butttonRemove"  > 
+            Delete
+          </Button>
+
+        </div>
+      )
+    }
+
+    deletePost(e, index){
+      e.preventDefault();
+      this.props.deletePost(index);
+    }
+
+    render(){
+      return(
+        <div className="container" id="containerBlog">
+          <div className="row">
+            <div className="col-sm-12">
+              <input type="text" id="blogInputName" value={this.state.name} onChange={this.handleChangeName} className="form-control" placeholder="Name post" />
+            </div>
+            <div className="col-sm-6" id="TextareaBlog">
+              <TextareaAutosize onChange={this.handleChangeText} value={this.state.textPl} id="areaTextBlog" rows={5} placeholder="Notatka pl" />
+            </div>
+            <div className="col-sm-6" >
+              <TextareaAutosize onChange={this.handleChangeTextAng} value={this.state.textAng} id="areaTextBlog" aria-label="minimum height" rows={5} placeholder="Note ang" />
+            </div>
+          </div>
+         <div>
+         <MultipleSelect />
+         </div>
+          <form onSubmit={this.handleSubmit} id="buttonSave" >
+            <Button variant="contained" color="primary" size="large" startIcon={<SaveIcon />} type="submit" className="btn">
+              Save
+            </Button>
+          </form>
+          <div className="postBlog">
+            <h1 id="headerPostBlog">BLOG</h1>
+            <ul className="list-group">
+                {this.props.posts.map((post, i) => this.listView(post, i))}
+            </ul>
+          </div> 
+        </div>
+        );
+      }
+}
+
+
+const mapStateToProps = ( state, ownProps) => {
+  return {
+    posts: state.posts
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createPost: post => dispatch(blogAction.createPost(post)),
+    deletePost: index => dispatch(blogAction.deletePost(index))
+  }
+};
+
+export default connect (mapStateToProps, mapDispatchToProps)(Blog);

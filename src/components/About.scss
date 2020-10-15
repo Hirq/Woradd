@@ -43,40 +43,6 @@ body {
   padding-top: 1px;
   border-color: rgb(41, 56, 4);
 }
-/* BLOG  */
-#containerBlog{
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#blogInputName{
-  margin-bottom: 5px;
-  width: 300px;
-}
-
-#rowLeft{
-  width: 60%;
-}
-
-#rowRight{
-  width: 35%;
-}
-
-
-.Scene {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;  
-}
-
-.Scene svg{
-  width: 30%;
-  height: 30%;
-}
-
 
 /* NOTE  */
 
@@ -88,11 +54,6 @@ body {
 
 #divFormNote {
   display: -webkit-inline-box;
-}
-
-#areaText{
-  margin-left: 0px;
-  text-align: center;
 }
 
 #inputNote{

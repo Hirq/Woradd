@@ -43,6 +43,7 @@ class Archives extends Component {
     this.lista = this.props.notes.map((note, i) => this.listView(note, i))
 
     return(
+
       <div className="container">
           {this.lista[this.props.match.params.index]}
       </div>

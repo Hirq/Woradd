@@ -4,6 +4,7 @@ import uuidv1 from "uuid";
 import * as noteAction from '../js/actions/noteAction';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+import Scene from './Scene';
 
 
 class Note extends Component{
@@ -64,7 +65,7 @@ class Note extends Component{
                     Remove
                     </button>
                 </div>
-            </div> 
+            </div>
         )
     }
 
@@ -76,6 +77,7 @@ class Note extends Component{
     render(){
         return (
             <div className="container">
+                <Scene />
                 <div className="row">
                     <div className="col-sm-8">
                         <form onSubmit={this.handleSubmit} id="divFormNote" >
