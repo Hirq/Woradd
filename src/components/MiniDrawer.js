@@ -17,9 +17,11 @@ import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import StorageIcon from '@material-ui/icons/Storage';
 import ReportProblemIcon from '@material-ui/icons/ReportProblem';
-import InsertInvitationIcon from '@material-ui/icons/InsertInvitation';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
+import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import './About.scss';
 
 import Home from './Home';
@@ -30,6 +32,8 @@ import Note from './Note';
 import Archives from './Archives';
 import Timer from './Timer';
 import Blog from './Blog/Blog';
+import LoginForm from './Login/Register/Login';
+import RegisterForm from './Login/Register/Register';
 
 const drawerWidth = 240;
 
@@ -244,33 +248,44 @@ export default function MiniDrawer() {
             </ListItem>
             </Link>
           ))}
-          </List>
+          {['LoginForm'].map((text) => (
+            <Link to={"/login" } key={text} id="links"><ListItem  button key={text} >
+              <ListItemIcon><AccountBoxIcon /></ListItemIcon>
+              <ListItemText primary={text}/>
+            </ListItem>
+            </Link>
+          ))}
+          {['RegisterForm'].map((text) => (
+            <Link to={"/register" } key={text} id="links"><ListItem  button key={text} >
+              <ListItemIcon><AccountBoxIcon /></ListItemIcon>
+              <ListItemText primary={text}/>
+            </ListItem>
+            </Link>
+          ))}
+          </List> 
           <Divider />
           <List>
           {['All mail', 'Trash'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InsertInvitationIcon /> : <StorageIcon /> }</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <AnnouncementIcon /> : <BeachAccessIcon /> }</ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
           ))}
         </List>
-
       </Drawer>
       </div>
       <div className ={darkMode ? "dark-mode-content" : "light-mode-content"}>
       <main className={classes.content} >
       <div className={classes.toolbar}/>
-
         <Switch>
           <Route path="/home/" component={Home} />
           <Route path="/about/" component={List1}/>
           <Route path="/note/" component={Note}/>
           <Route path="/archives/:index" component={Archives}/>
           <Route path="/blog" component={Blog}/>
+          <Route path="/login" component={LoginForm}/>
+          <Route path="/register" component={RegisterForm}/>   
         </Switch>
-
-
-
       </main>
       </div>
     </div>

@@ -4,18 +4,12 @@ import './About.scss';
 import * as noteAction from '../js/actions/noteAction';
 
 class Archives extends Component {
-
-  constructor(props){
-    super(props);
-
-    this.state = {
-        noteAng: '',
-        notePl: '',
-        lista: [],
-    }
+  state = {
+    noteAng: '',
+    notePl: '',
+    lista: [],
   }
-
-  listView(data, index){
+  listView = (data, index) => {
     return (
       <div className="row">
         <div className="col-md-10">

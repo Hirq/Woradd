@@ -1,10 +1,13 @@
 $base-color: white;
-$dark-color: black;
+$base-color-border: blue;
+$base-color-label: black;
 
+$dark-color: black;
+$dark-color-border: rgb(161, 76, 182);
+$dark-color-label: rgb(161, 76, 182);
 
 
 body {
-
     background-color: #528ba8;
     font-family: sans-serif;
   }
@@ -119,7 +122,8 @@ body {
 
 /* Light - Dark - Style  */
 nav{
-  height: 65px;
+  height: 100%;
+  min-height: 65px;
 }
 
 .light-mode {
@@ -150,6 +154,23 @@ nav{
   width: 100%;
   color: black;
   transition: background-color 0.25s ease;
+
+  h1,h2,h3,h4{
+    color: $base-color-label;
+  }
+  label{
+    color: $base-color-label !important;
+  }
+
+  input{
+    background-color: white;
+    border-color: $base-color-border;
+  }
+
+  button{
+    background-color: $base-color-border;
+    color: white;
+  }
 }
 
 .dark-mode {
@@ -173,14 +194,32 @@ nav{
     transition: background-color 0.25s ease;
   }
 }
-
+//////////////////////////// DARK MODE /////// CONTENT
 .dark-mode-content{
   background-color: black;
   padding: 0;
   height: 100vh;
   width: 100%;
-  color: rgb(161, 76, 182);
+  color: $dark-color;
   transition: background-color 0.25s ease;
+
+  h1,h2,h3,h4{
+    color: $dark-color-border;
+  }
+
+  label{
+    color: $dark-color-label !important;
+  }
+
+  input{
+    background-color: white;
+    border-color: $dark-color-border;
+  }
+
+  button{
+    background-color: $dark-color-border;
+    color: $dark-color;
+  }
 }
 
 .toggle-dark-mode {

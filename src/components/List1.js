@@ -8,21 +8,13 @@ import uuidv1 from "uuid";
 import WordsList from './ListFirebase';
 
 class List1 extends Component {
-
-  constructor(props){
-    super(props);
-    this.handleChangeNameSet = this.handleChangeNameSet.bind(this);
-    this.handleSumbit = this.handleSumbit.bind(this);
-
-    this.state = {
-      word: '',
-      word_pl: '',
-      nameSet: '',
-    }
+  state = {
+    word: '',
+    word_pl: '',
+    nameSet: '',
   }
 
-
-  listView(data, index){
+  listView = (data, index) => {
     return (
       <div className="row">
         <div className="col-md-10">
@@ -39,18 +31,18 @@ class List1 extends Component {
     )
   }
 
-  deleteContact(e, index){
+  deleteContact = (e, index) => {
     e.preventDefault();
     this.props.deleteContact(index);
   }
 
-  handleChangeNameSet(e){
+  handleChangeNameSet = (e) => {
     this.setState({
       nameSet: e.target.value
     })
   };
 
-  handleSumbit(e){
+  handleSumbit = (e) => {
     e.preventDefault();
     const { nameSet } = this.state;
     const id = uuidv1();
@@ -58,12 +50,12 @@ class List1 extends Component {
     this.setState({nameSet: '',});
   }
 
-  deleteSet(e, index){
+  deleteSet = (e, index) => {
     e.preventDefault();
     this.props.deleteSet(index);
   }
 
-  listViewSet(data, index){
+  listViewSet = (data, index) => {
     return (
         <div className="row" key={index}>
             <div className="col-md-9" >

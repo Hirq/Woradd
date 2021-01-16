@@ -47,35 +47,28 @@ const styles = theme => ({
 });
 
 class Word extends Component {
-
-  constructor(props){
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
-    this.state = {
-      word: '',
-      word_pl: '',
-    }
+  state = {
+    word: '',
+    word_pl: '',
   }
 
-  handleChange(e){
+  handleChange = (e) => {
     this.setState({ [e.target.id] : e.target.value});
   }
 
-  handleChange2 = name => event => {
+  handleChange2 = (e) => {
     this.setState({
-      [name]: event.target.value,
+      word : e.target.value,
     });
   };
 
-  handleChange3 = name => event => {
+  handleChange3 = (e) => {
     this.setState({
-      [name]: event.target.value,
+      word_pl: e.target.value,
     });
   };
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     const { word, word_pl } = this.state;
     const id = uuidv1();
@@ -102,7 +95,7 @@ class Word extends Component {
           label="ANG"
           className={classes.textField}
           value={this.state.word}
-          onChange={this.handleChange2('word')}
+          onChange={this.handleChange2}
           margin="normal"
           variant="outlined"
           InputLabelProps={{
@@ -125,7 +118,7 @@ class Word extends Component {
           label="PL"
           className={classes.textField}
           value={this.state.word_pl}
-          onChange={this.handleChange2('word_pl')}
+          onChange={this.handleChange3}
           margin="normal"
           variant="outlined"
           InputLabelProps={{
