@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -70,18 +71,25 @@ function getStyles(tag, tagName, theme) {
   };
 }
 
+
+
 export default function MultipleSelect(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [tagName, setTagName] = React.useState([]);
 
-  const handleChange = (event) => {
-    setTagName(event.target.value);
-    props.parentCallback(event.target.value + '');
+  const handleChange = (e) => {
+    setTagName(e.target.value);
+    props.parentCallback(e.target.value + '');
   };
 
+  const ClearMultipleSelect = (e) => {
+    e.preventDefault();
+    setTagName([]);
+  }
+
   return (
-    <div>
+    <>
       <FormControl className={classes.formControl}>
         <InputLabel className={classes.inputLabel} id="demo-mutiple-chip-label">Tags</InputLabel>
         <Select
@@ -106,7 +114,9 @@ export default function MultipleSelect(props) {
             </MenuItem>
           ))}   
         </Select>
+
       </FormControl>
-    </div>
+      <Button onClick={ClearMultipleSelect}>CLEAR - do zmiany</Button>
+    </>
   );
 }

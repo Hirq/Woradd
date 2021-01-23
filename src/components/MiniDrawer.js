@@ -25,7 +25,7 @@ import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import './About.scss';
 
 import Home from './Home';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import Word from './Word';
 import List1 from './List1';
 import Note from './Note';
@@ -92,8 +92,15 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
-    ...theme.mixins.toolbar,
+    height: '65px',
+    // ["@media(min-width: 660px)"]: {
+    //   height: '100px',
+    // },
+    // ["@media(min-width: 590px)"]: {
+    //   height: '110px',
+    // },
 
+    ...theme.mixins.toolbar,
   },
   content: {
     flexGrow: 1,
@@ -165,32 +172,34 @@ export default function MiniDrawer() {
                   [classes.hide]: open,
                 })}
               >
-                <MenuIcon />
+              <MenuIcon />
               </IconButton>
               <Typography variant="h6" noWrap>
                 Woradd
                 {darkMode ? "1" : "2"}
-
               </Typography>
               <Word/>
-
-              <div className="toogle-dark-mode-container">
-                <span style={{ color: darkMode ? "grey" : "yellow"}}>☀</span>
-                <span className="toggle-dark-mode">
-                  <input
-                  checked={darkMode}
-                  onChange={() => setDarkMode(prevMode => !prevMode)}
-                  type="checkbox"
-                  className="checkbox-dark-mode"
-                  id="checkbox-dark-mode"
-                  />
-                <label htmlFor="checkbox-dark-mode"/>
-                </span>
-                <span style={{ color: darkMode ? "red" : "grey"}}>☾</span>
+              <div className="RightNavElements">
+                <div className="toogle-dark-mode-container">
+                  <span style={{ color: darkMode ? "grey" : "yellow"}}>☀</span>
+                  <span className="toggle-dark-mode">
+                    <input
+                    checked={darkMode}
+                    onChange={() => setDarkMode(prevMode => !prevMode)}
+                    type="checkbox"
+                    className="checkbox-dark-mode"
+                    id="checkbox-dark-mode"
+                    />
+                  <label htmlFor="checkbox-dark-mode"/>
+                  </span>
+                  <span style={{ color: darkMode ? "red" : "grey"}}>☾</span>
+                </div>
+                <Timer/>
+                <Link to={"/login" } key='LoginForm' className="LinkItem" id="LoginForm">
+                  <AccountBoxIcon fontSize="large"/>
+              </Link>
               </div>
-
-              <Timer/>
-            </Toolbar>,
+            </Toolbar>
           </nav>
         </div>
       </AppBar>
@@ -209,54 +218,51 @@ export default function MiniDrawer() {
         }}
         open={open}
       >
-
+ 
         <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <KeyboardArrowRightIcon /> : <KeyboardArrowLeftIcon />}
           </IconButton>
         </div>
+
+        
         <Divider />
         <List >
           {['Home'].map((text) => (
-            <Link to={"/home" } key={text} id="links"><ListItem  button key={text} >
+            <Link to={"/home" } key={text} className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><FitnessCenterIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
             </Link>
           ))}
           {['About'].map((text) => (
-            <Link to={"/about" }  key={text} id="links"><ListItem button key={text} >
-              <ListItemIcon><FormatColorTextIcon /></ListItemIcon>
+            <NavLink to={"/about" }  
+            activeClassName = "LinkItemActive"
+            key={text} className="LinkItem"><ListItem button key={text} >
+            <ListItemIcon><FormatColorTextIcon /></ListItemIcon>
               <ListItemText primary={text}/>
-            </ListItem>
-            </Link>
-          ))}
+           </ListItem>
+           </NavLink>
+         ))}
         </List>
         <Divider />
         <List>
           {['Note'].map((text) => (
-            <Link to={"/note" } key={text} id="links"><ListItem  button key={text} >
+            <Link to={"/note" } key={text} className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><ReportProblemIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
             </Link>
           ))}
           {['Blog'].map((text) => (
-            <Link to={"/blog" } key={text} id="links"><ListItem  button key={text} >
+            <Link to={"/blog" } key={text} className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><StorageIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
             </Link>
           ))}
-          {['LoginForm'].map((text) => (
-            <Link to={"/login" } key={text} id="links"><ListItem  button key={text} >
-              <ListItemIcon><AccountBoxIcon /></ListItemIcon>
-              <ListItemText primary={text}/>
-            </ListItem>
-            </Link>
-          ))}
           {['RegisterForm'].map((text) => (
-            <Link to={"/register" } key={text} id="links"><ListItem  button key={text} >
+            <Link to={"/register" } key={text} className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><AccountBoxIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>

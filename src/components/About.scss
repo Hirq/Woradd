@@ -9,7 +9,6 @@ $dark-color-label: rgb(161, 76, 182);
 
 body {
     background-color: #528ba8;
-    font-family: sans-serif;
   }
   
   #container {
@@ -95,36 +94,60 @@ body {
   margin-left: -9%;
 }
 
-/* TIMER */ 
-
-#timer{
-  position: absolute;
-  right: 0;
+/* TIMER + DARK MODE BUTTON + LoginFormIcon POSITION*/ 
+.RightNavElements{
+  margin-left: auto;
+  display: flex;
 }
+
 #timerButton{
+  display: flex;
   margin-right: 5px;
   margin-left: 5px;
 }
 
+#LoginForm{
+  display: flex;
+  margin: 10px;
+}
+
 /* MINI DRAWER */
 
-#links{
-  color:black;
-  text-decoration: none;
-}
-
-#links:hover{
-  text-decoration: none;
-  color:black;
-}
-
-
-
-/* Light - Dark - Style  */
 nav{
   height: 100%;
   min-height: 65px;
+  display: table;
+  width: 100%;
 }
+
+
+
+.LinkItem{
+  color:black;
+  text-decoration: none;
+}
+
+.LinkItem:hover{
+  text-decoration: none;
+  color:black;
+}
+
+.LinkItemActive{
+  .MuiListItem-button{
+    border-color: red;
+
+    border-style: solid;
+    border-radius: 7px;
+    border-width: 2px;
+  }
+  .MuiListItemText{
+    font-weight: 700;
+    
+  }
+}
+
+
+/* Light - Dark - Style  */
 
 .light-mode {
   background-color: #fff;
@@ -132,6 +155,11 @@ nav{
   nav{
     background-color: blue;
     transition: background-color 0.25s ease;
+
+    .LinkItem{
+      color: $base-color;
+      text-decoration: none;
+    }
   }
 }
 
@@ -155,7 +183,7 @@ nav{
   color: black;
   transition: background-color 0.25s ease;
 
-  h1,h2,h3,h4{
+  h1,h2,h3,h4,li,ul{
     color: $base-color-label;
   }
   label{
@@ -180,7 +208,13 @@ nav{
   nav{
     background-color: sandybrown;
     transition: background-color 0.25s ease;
+
+    .LinkItem{
+      color: $dark-color-label;
+      text-decoration: none;
+    }
   }
+
 }
 
 .dark-mode-drawer{
@@ -203,7 +237,7 @@ nav{
   color: $dark-color;
   transition: background-color 0.25s ease;
 
-  h1,h2,h3,h4{
+  h1,h2,h3,h4,li,ul{
     color: $dark-color-border;
   }
 
@@ -283,3 +317,5 @@ input[type="checkbox"].checkbox-dark-mode + label {
 .toogle-dark-mode-container > span:last-child {
   margin-top: 5px;
 }
+
+

@@ -9,12 +9,16 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import './Blog.scss';
 import MultipleSelect from './BlogSelectBox';
 
+var dateCurrent = new Date(),
+today = dateCurrent.getFullYear() + '-' + (dateCurrent.getMonth() + 1) + '-' + dateCurrent.getDate();
+
 class Blog extends Component {
   state = {
     name: '',
     textPl: '',
     textAng: '',
-    tag: [''],
+    tag: '',
+    today: today,
   }
 
   handleChangeName = (e) => {
@@ -47,6 +51,7 @@ class Blog extends Component {
     })
   }
 
+
   setValue = (value) => {
     this.setState(prevState => ({
       select: {
@@ -58,13 +63,10 @@ class Blog extends Component {
 
   handleSubmit = (e) =>{
     e.preventDefault();
-    const { name, textPl,textAng, tag } = this.state;
+    const { name, textPl,textAng, tag, today } = this.state;
     const id = uuidv1(); 
-    this.props.createPost({name, textPl, textAng, tag, id });
-    this.setState({name: '', textPl: '', textAng: '', tag: ''});
-
-
- //   this.handleCallback.setState({tag: ''})
+    this.props.createPost({name, textPl, textAng, tag, today, id });
+    this.setState({name: '', textPl: '', textAng: '', tag: '', today: today});
   }
 
   listView = (data, index) => {
@@ -74,6 +76,7 @@ class Blog extends Component {
         <h2>Tekst - {data.textPl}</h2>
         <h2>TekstAng - {data.textAng}</h2>
         <h3>Tagi: {data.tag}</h3>
+        <h3>Data: {data.today}</h3> 
         <Button variant="contained" color="secondary" startIcon={<DeleteIcon />} onClick={(e) => this.deletePost(e, index)} className="btn btn-danger" id="butttonRemove"  > 
           Delete
         </Button>

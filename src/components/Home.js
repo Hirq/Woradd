@@ -4,7 +4,7 @@ import './About.scss';
 class Home extends Component {
     state = {
       articles: [    
-        { title: "0 : Data dodania posta na blogu - czy cos jeszcze jest potrzebne?", id: 6 },
+        { title: "0 : Poprawić navbar", id: 6 },
         { title: "0 : Forma bloga dla mnie, gdzie zapisuje taski po ang i polsku (Te teraz) i tworze pierwszego aktywnego użytkownika aplikacji", id: 6 },
         { title: "1 : Poprawić scss"},
         { title: "2.: Blog - 60%-40% - po prawej poprzednie posty, po lewej dodawanie nowych, później FIREBIRD  "},
@@ -24,6 +24,7 @@ class Home extends Component {
         { title: "DARK STYLE - Opisać useState i napis zmieniany" },
         { title: "Tagi - przesylanie danych z dziecka do rodzica i rodzica do dziecka "},
         { title: "zrobic drzewo komponentów jak poprawie nazwy ich" },
+        { title: "gita opisac", id: 6 },
       ],
       articlesDone: [
         { title: "0 : css zamienić na scss"},
@@ -31,6 +32,7 @@ class Home extends Component {
         { title: "Firebase - póki co tylko na 30 dni aktywne"},
         { title: "Tagi - przesylanie danych z dziecka do rodzica"},
         { title: "Notatka z możliwością dodania tłumaczenia", id: 3 },
+        { title: "0 : Data dodania posta na blogu - czy cos jeszcze jest potrzebne?", id: 6 },
       ]
     };
 
