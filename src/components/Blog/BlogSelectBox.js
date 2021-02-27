@@ -116,7 +116,7 @@ export default function MultipleSelect(props) {
         </Select>
 
       </FormControl>
-      <Button onClick={ClearMultipleSelect}>CLEAR - do zmiany</Button>
+      <Button onClick={ClearMultipleSelect}>pomiedzy componentami obsluga - https://stackoverflow.com/questions/53451584/is-it-possible-to-share-states-between-components-using-the-usestate-hook-in-r</Button>
     </>
   );
 }

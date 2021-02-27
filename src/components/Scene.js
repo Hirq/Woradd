@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { ReactComponent as Scene1 } from '../Frame1.svg';
+import { ReactComponent as Scene1 } from 'Frame1.svg';
 import gsap from 'gsap';
 
 function Scene(){

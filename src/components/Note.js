@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import uuidv1 from "uuid";
-import * as noteAction from '../js/actions/noteAction';
+import * as noteAction from 'js/actions/noteAction';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import Scene from './Scene';
+import Scene from 'components/Scene';
 
 
 class Note extends Component{

@@ -1,12 +1,12 @@
 import React, {useState, useEffect } from 'react';
-import firebase from '../firebase';
+import firebaseApp from 'Firebase/firebase'
 
 function useWords(){
   const [words, setWords] = useState([])
 
   useEffect(() => {
     const unsubscribe = 
-    firebase
+    firebaseApp
       .firestore()
       .collection('words')
       .onSnapshot((snapshot) => {

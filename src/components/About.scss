@@ -5,10 +5,15 @@ $base-color-label: black;
 $dark-color: black;
 $dark-color-border: rgb(161, 76, 182);
 $dark-color-label: rgb(161, 76, 182);
+$dark-color-border-second: white;
 
+$dark-color: black;
+$dark-color-border: hsl(186, 57%, 27%);
+$dark-color-label: hsl(186, 57%, 27%);
+$dark-color-border-second: white;
 
 body {
-    background-color: #528ba8;
+    background-color: #11222b;
   }
   
   #container {
@@ -134,7 +139,7 @@ nav{
 
 .LinkItemActive{
   .MuiListItem-button{
-    border-color: red;
+    border-color: $dark-color-border-second;
 
     border-style: solid;
     border-radius: 7px;
@@ -178,7 +183,7 @@ nav{
 .light-mode-content{
   background-color: white;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   color: black;
   transition: background-color 0.25s ease;

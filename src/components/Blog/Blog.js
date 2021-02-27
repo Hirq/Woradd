@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import uuidv1 from "uuid";
-import * as blogAction from '../../js/actions/blogAction';
+import * as blogAction from 'js/actions/blogAction';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { connect } from "react-redux";
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import DeleteIcon from '@material-ui/icons/Delete';
-import './Blog.scss';
-import MultipleSelect from './BlogSelectBox';
+import 'components/Blog/Blog.scss';
+import MultipleSelect from 'components/Blog/BlogSelectBox';
 
 var dateCurrent = new Date(),
 today = dateCurrent.getFullYear() + '-' + (dateCurrent.getMonth() + 1) + '-' + dateCurrent.getDate();

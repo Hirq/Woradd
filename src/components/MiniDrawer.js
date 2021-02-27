@@ -22,18 +22,30 @@ import StorageIcon from '@material-ui/icons/Storage';
 import ReportProblemIcon from '@material-ui/icons/ReportProblem';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-import './About.scss';
 
-import Home from './Home';
-import { Switch, Route, Link, NavLink } from 'react-router-dom';
-import Word from './Word';
-import List1 from './List1';
-import Note from './Note';
-import Archives from './Archives';
-import Timer from './Timer';
-import Blog from './Blog/Blog';
-import LoginForm from './Login/Register/Login';
-import RegisterForm from './Login/Register/Register';
+import 'components/About.scss';
+import Home from 'components/Home';
+import { Switch, Route, Link, NavLink, Redirect} from 'react-router-dom';
+import Navbar from 'components/Navbar';
+import List1 from 'components/List1';
+import Note from 'components/Note';
+import Archives from 'components/Archives';
+import Timer from 'components/molecules/Timer';
+import Blog from 'components/Blog/Blog';
+import LoginForm from 'components/LoginRegister/Login';
+import RegisterForm from 'components/LoginRegister/Register';
+
+export const routes = {
+  start: '/',
+  home: '/home',
+  list: '/list',
+  note: '/note',
+  notes: '/note/:index',
+  blog: '/blog',
+  register: '/register',
+  login: '/login',
+};
+
 
 const drawerWidth = 240;
 
@@ -84,7 +96,7 @@ const useStyles = makeStyles(theme => ({
     overflowX: 'hidden',
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1,
+      width: theme.spacing(8) + 1,
     },
   },
   toolbar: {
@@ -178,7 +190,7 @@ export default function MiniDrawer() {
                 Woradd
                 {darkMode ? "1" : "2"}
               </Typography>
-              <Word/>
+              <Navbar/>
               <div className="RightNavElements">
                 <div className="toogle-dark-mode-container">
                   <span style={{ color: darkMode ? "grey" : "yellow"}}>☀</span>
@@ -225,21 +237,22 @@ export default function MiniDrawer() {
           </IconButton>
         </div>
 
-        
         <Divider />
         <List >
           {['Home'].map((text) => (
-            <Link to={"/home" } key={text} className="LinkItem"><ListItem  button key={text} >
+            <NavLink to={routes.home} 
+              activeClassName = "LinkItemActive"
+              className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><FitnessCenterIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
-            </Link>
+            </NavLink>
           ))}
           {['About'].map((text) => (
-            <NavLink to={"/about" }  
-            activeClassName = "LinkItemActive"
-            key={text} className="LinkItem"><ListItem button key={text} >
-            <ListItemIcon><FormatColorTextIcon /></ListItemIcon>
+            <NavLink to={routes.list}
+              activeClassName = "LinkItemActive"
+              className="LinkItem"><ListItem button key={text} >
+              <ListItemIcon><FormatColorTextIcon /></ListItemIcon>
               <ListItemText primary={text}/>
            </ListItem>
            </NavLink>
@@ -248,25 +261,31 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {['Note'].map((text) => (
-            <Link to={"/note" } key={text} className="LinkItem"><ListItem  button key={text} >
+            <NavLink to={routes.note}
+              activeClassName = "LinkItemActive"
+              className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><ReportProblemIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
-            </Link>
+            </NavLink>
           ))}
           {['Blog'].map((text) => (
-            <Link to={"/blog" } key={text} className="LinkItem"><ListItem  button key={text} >
+            <NavLink to={routes.blog} 
+              activeClassName = "LinkItemActive"
+              className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><StorageIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
-            </Link>
+            </NavLink>
           ))}
           {['RegisterForm'].map((text) => (
-            <Link to={"/register" } key={text} className="LinkItem"><ListItem  button key={text} >
+            <NavLink to={routes.register} 
+              activeClassName = "LinkItemActive"
+              className="LinkItem"><ListItem  button key={text} >
               <ListItemIcon><AccountBoxIcon /></ListItemIcon>
               <ListItemText primary={text}/>
             </ListItem>
-            </Link>
+            </NavLink>
           ))}
           </List> 
           <Divider />
@@ -284,13 +303,14 @@ export default function MiniDrawer() {
       <main className={classes.content} >
       <div className={classes.toolbar}/>
         <Switch>
-          <Route path="/home/" component={Home} />
-          <Route path="/about/" component={List1}/>
-          <Route path="/note/" component={Note}/>
-          <Route path="/archives/:index" component={Archives}/>
-          <Route path="/blog" component={Blog}/>
-          <Route path="/login" component={LoginForm}/>
-          <Route path="/register" component={RegisterForm}/>   
+          <Route exact path={routes.start} render={() => <Redirect to={routes.home} />} />
+          <Route path={routes.home} component={Home} />
+          <Route path={routes.list} component={List1}/>
+          <Route path={routes.note} component={Note}/>
+          <Route path={routes.notes} component={Archives}/>
+          <Route path={routes.blog} component={Blog}/>
+          <Route path={routes.login} component={LoginForm}/>
+          <Route path={routes.register} component={RegisterForm}/>   
         </Switch>
       </main>
       </div>

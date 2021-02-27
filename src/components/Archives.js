@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import './About.scss';
-import * as noteAction from '../js/actions/noteAction';
+import * as noteAction from 'js/actions/noteAction';
 
 class Archives extends Component {
   state = {

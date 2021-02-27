@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.scss';
+import 'components/LoginRegister/Login.scss';
 import { Link } from 'react-router-dom';
 
   function RegisterForm() {

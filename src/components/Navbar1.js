@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
-import './About.scss';
-import * as contactAction from '../js/actions/contactAction';
+import 'components/About.scss';
+import * as contactAction from 'js/actions/contactAction';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import firebase from '../firebase';
+import firebase from 'firebase';
 
 
 import { withStyles } from '@material-ui/core/styles';
@@ -86,7 +86,7 @@ class Word extends Component {
 
   render() {
     const { classes } = this.props;
-
+    const {darkMode } = this.props;
     return(
       <div>
 
@@ -143,8 +143,31 @@ class Word extends Component {
           >
           Upload1
         </Button>
-
        </form>
+
+
+       <div className="RightNavElements">
+                <div className="toogle-dark-mode-container">
+                  <span style={{ color: {darkMode} ? "grey" : "yellow"}}>☀</span>
+                  <span className="toggle-dark-mode">
+                    <input
+                    checked={darkMode}
+                    onChange={() => setDarkMode(prevMode => !prevMode)}
+                    type="checkbox"
+                    className="checkbox-dark-mode"
+                    id="checkbox-dark-mode"
+                    />
+                  <label htmlFor="checkbox-dark-mode"/>
+                  </span>
+                  <span style={{ color: darkMode ? "red" : "grey"}}>☾</span>
+                </div>
+                <Timer/>
+                <Link to={"/login" } key='LoginForm' className="LinkItem" id="LoginForm">
+                  <AccountBoxIcon fontSize="large"/>
+              </Link>
+              </div>
+
+
 
       </div>
     )

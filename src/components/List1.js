@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import './About.scss'
-import * as contactAction from '../js/actions/contactAction';
-import * as setAction from '../js/actions/setAction';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import uuidv1 from "uuid";
-import WordsList from './ListFirebase';
+import 'components/About.scss'
+import * as contactAction from 'js/actions/contactAction';
+import * as setAction from 'js/actions/setAction';
+import WordsList from 'components/ListFirebase';
 
 class List1 extends Component {
   state = {

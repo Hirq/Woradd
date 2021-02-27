@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import './About.scss';
-
+import Button from 'components/atoms/Button'
+import Button2 from 'components/atoms/Button/Button'
+import Paragraph from 'components/atoms/Paragraph'
+import Input from 'components/atoms/Input'
+import Heading from 'components/atoms/Heading'
 class Home extends Component {
     state = {
       articles: [    
+        { title: "pomiedzy componentami obsluga - https://stackoverflow.com/questions/53451584/is-it-possible-to-share-states-between-components-using-the-usestate-hook-in-r" },
         { title: "0 : Poprawić navbar", id: 6 },
         { title: "0 : Forma bloga dla mnie, gdzie zapisuje taski po ang i polsku (Te teraz) i tworze pierwszego aktywnego użytkownika aplikacji", id: 6 },
         { title: "1 : Poprawić scss"},
@@ -33,6 +37,7 @@ class Home extends Component {
         { title: "Tagi - przesylanie danych z dziecka do rodzica"},
         { title: "Notatka z możliwością dodania tłumaczenia", id: 3 },
         { title: "0 : Data dodania posta na blogu - czy cos jeszcze jest potrzebne?", id: 6 },
+        { title: "Zmiana ścieżek na absolutne + poprawa firebase (bo przez te sciezki sie popsuło) oraz dodanie const z routes w miniDrawer", id: 6 },
       ]
     };
 
@@ -40,12 +45,18 @@ class Home extends Component {
     return(
         <div class ="row">
           <div class="column">
-            <h2>DO ZROBIENIA</h2>
-            <ul>{this.state.articles.map(el => <li key={el.id}>{el.title}</li>)}</ul>
+            <Button secondary>pierwzy</Button>
+            <Button2>pierwzy111</Button2>
+            <Heading>DO ZROBIENIA</Heading>
+            <ul>{this.state.articles.map(el => 
+              <li key={el.id}><Paragraph>{el.title}</Paragraph></li>)}
+            </ul>
           </div>
           <div class = "column">
-            <h2>WYKONANE</h2>
-            <ul>{this.state.articlesDone.map(el => <li key={el.id}>{el.title}</li>)}</ul>
+          <Heading>WYKONANE</Heading>
+            <ul>{this.state.articlesDone.map(el => 
+              <li key={el.id}><Paragraph>{el.title}</Paragraph></li>)}
+            </ul>
           </div>
         </div>
     );

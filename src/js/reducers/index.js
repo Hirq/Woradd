@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import  contacts  from './contactReducer';
-import notes from './noteReducer';
-import sets from './setReducer';
-import posts from './blogReducer';
+import  contacts  from 'js/reducers/contactReducer';
+import notes from 'js/reducers/noteReducer';
+import sets from 'js/reducers/setReducer';
+import posts from 'js/reducers/blogReducer';
 
 export default combineReducers({
     contacts: contacts,

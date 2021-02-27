@@ -1,12 +1,12 @@
 import React from 'react';
-import './About.scss'
+import 'components/About.scss'
 
 class Timer extends React.Component {
   state = { 
     time: {}, 
     seconds: 0,
     status: true,
-    timer: 0
+    timer: 0,
   }
     
   secondsToTime = (secs) => {
@@ -59,7 +59,7 @@ class Timer extends React.Component {
     return(
       <div id="timer">
         {this.startAutoTimer()}
-        m: {this.state.time.m} s:{this.state.time.s}
+          m: {this.state.time.m} s:{this.state.time.s}
         <button id="timerButton" className="btn btn-sm" onClick={this.handleClick}>{status ? 'Stop' : 'Start'}</button>
       </div>
     );

@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from 'js/actions/actionTypes';
 
 export const createNote = (note) => {
     return {
